@@ -1,0 +1,21 @@
+schema {
+    query: LitigationQuery
+}
+
+type LitigationQuery {
+    litigation: Litigation
+}
+
+type Litigation {
+    defendant(queryInput: LitigationQueryInput): String
+    plaintiff: String
+}
+
+input LitigationQueryInput {
+    patentId: String
+}
+
+
+
+
+

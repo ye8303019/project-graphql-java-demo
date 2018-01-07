@@ -1,0 +1,59 @@
+type Query {
+    patent_biblio: PatentBiblio
+    legal: Legal
+    patent_biblio_legal: PatentBiblioAndLegal
+
+}
+
+interface Patent {
+    id(patentId: String): String!
+    pn: String!
+}
+
+type PatentBiblio implements Patent{
+    id(patentId: String): String!
+    pn: String!
+    apno: String
+    ans: Assignee
+    familyType: FamilyType
+}
+
+type Assignee implements Person{
+    name: String!
+    lang: String!
+}
+
+interface Person {
+    name: String!
+}
+
+type Legal {
+    legalStatus:[String]
+    eventStatus:[String]
+    l001ep:String
+}
+
+union PatentBiblioAndLegal = PatentBiblio | Legal
+
+enum FamilyType {
+    ORIGINAL
+    INPADOC
+}
+
+type QueryLitigation {
+    litigation: Litigation
+}
+
+type Litigation {
+    defendant(queryInput: LitigationQueryInput): String
+    plaintiff: String
+}
+
+input LitigationQueryInput {
+    patentId: String
+}
+
+
+
+
+

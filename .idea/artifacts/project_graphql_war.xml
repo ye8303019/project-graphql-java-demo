@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="project-graphql:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="project-graphql.war">
+      <element id="artifact" artifact-name="project-graphql:war exploded" />
+    </root>
+  </artifact>
+</component>

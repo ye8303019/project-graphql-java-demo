@@ -1,0 +1,27 @@
+type Query {
+    patent(patentId: String, offset: Int = 0, limit: Int = 10): Patent
+    total(patentId: String): Int
+    offset(offset: Int = 0, limit: Int = 10): Int
+
+
+}
+
+type Patent {
+    id: String!
+    pn: String!
+    my_name: String
+    apno: String
+    citations: [Patent]
+    person: Person
+}
+
+type Person {
+    name: String
+}
+
+
+
+
+
+
+
